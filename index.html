@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>টারমাক্স প্রো সেটআপ - বাংলাদেশ</title>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="টারমাক্স প্রো সেটআপ - বাংলাদেশ">
+    <meta property="og:description" content="বাংলাদেশের জন্য উন্নত টারমাক্স সেটআপ স্ক্রিপ্ট">
+    <meta property="og:image" content="https://studentspowersbd.github.io/Termux-Setup/IMG_9698.jpeg">
+    <meta property="og:url" content="https://studentspowersbd.github.io/Termux-Setup/">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #006a4e;
+            --secondary-color: #f42a41;
+            --accent-color: #ffbf00;
+            --text-color: #333;
+            --bg-color: #f0f0f0;
+            --header-height: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background-image: url('IMG_9698.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            padding: 20px;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .telegram-channels {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .telegram-channel {
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .telegram-channel:hover {
+            background-color: #005580;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">টারমাক্স প্রো</div>
+            <ul>
+                <li><a href="#features">বৈশিষ্ট্য</a></li>
+                <li><a href="#usage">ব্যবহার</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>টারমাক্স প্রো সেটআপ - বাংলাদেশ</h1>
+            <p>আপনার টারমাক্স অভিজ্ঞতাকে উন্নত করুন</p>
+            <a href="#usage" class="btn">শুরু করুন</a>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2>✨ বৈশিষ্ট্য</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-sync-alt"></i>
+                <h3>স্বয়ংক্রিয় আপডেট</h3>
+                <p>সর্বাধুনিক প্যাকেজ এবং টুলস সহ আপ টু ডেট থাকুন</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-tools"></i>
+                <h3>উন্নত টুল</h3>
+                <p>পাইথন, গিট, নম্যাপ সহ অন্যান্য প্রয়োজনীয় টুল</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-terminal"></i>
+                <h3>কাস্টম কনফিগারেশন</h3>
+                <p>Oh My Zsh, Vim, এবং Tmux এর জন্য বিশেষ সেটিংস</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-code"></i>
+                <h3>ডেভেলপমেন্ট সহায়ক</h3>
+                <p>পাইথন ডেভেলপমেন্টের জন্য বিশেষ টুলস</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" class="container">
+        <h2>🚀 ব্যবহার</h2>
+        <p>টারমাক্সে নিম্নলিখিত কমান্ডগুলি রান করুন:</p>
+        <code>pkg install git -y
+git clone https://github.com/StudentsPowersBD/Termux-Setup.git
+cd Termux-Setup
+chmod +x setup.sh
+./setup.sh</code>
+        <p>এই কমান্ডগুলি আপনার টারমাক্স এনভায়রনমেন্টকে সম্পূর্ণরূপে সেটআপ করবে।</p>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>📞 যোগাযোগ</h2>
+        <p>আরও তথ্য এবং আপডেটের জন্য আমাদের টেলিগ্রাম চ্যানেলে যোগ দিন:</p>
+        <div class="telegram-channels">
+            <a href="https://t.me/StudentsPowersBD" class="telegram-channel"><i class="fab fa-telegram"></i> StudentsPowersBD</a>
+            <a href="https://t.me/VorTexCyberBD" class="telegram-channel"><i class="fab fa-telegram"></i> VorTexCyberBD</a>
+            <a href="https://t.me/GenerationZoomersBD" class="telegram-channel"><i class="fab fa-telegram"></i> GenerationZoomersBD</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 টারমাক্স প্রো সেটআপ - বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
