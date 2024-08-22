@@ -21,14 +21,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom Styles -->
     <style>
         :root {
-            --primary-color: #006a4e; /* Bangladesh Green */
-            --secondary-color: #f42a41; /* Bangladesh Red */
-            --accent-color: #ffbf00; /* Accent Yellow */
-            --text-color: #222;
-            --bg-color: #f7f7f7;
+            --primary-color: #006a4e;
+            --secondary-color: #f42a41;
+            --accent-color: #ffbf00;
+            --text-color: #333;
+            --bg-color: #f0f0f0;
             --header-height: 70px;
         }
 
@@ -42,7 +41,7 @@
             font-family: 'Noto Sans Bengali', Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .container {
@@ -59,7 +58,6 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-bottom: 5px solid var(--secondary-color);
         }
 
         nav {
@@ -98,7 +96,7 @@
         }
 
         .hero {
-            background-image: url('https://api.placeholder.com/1920x1080?text=Bangladesh+Landscape');
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://api.placeholder.com/1920x1080?text=Bangladesh+Landscape');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -108,7 +106,6 @@
             text-align: center;
             color: white;
             position: relative;
-            border-bottom: 5px solid var(--secondary-color);
         }
 
         .hero-content {
@@ -121,12 +118,6 @@
             font-size: 3.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: var(--accent-color);
         }
 
         .btn {
@@ -150,7 +141,6 @@
 
         section {
             padding: 80px 0;
-            text-align: center;
         }
 
         h2 {
@@ -203,7 +193,6 @@
             padding: 20px;
             margin-bottom: 20px;
             position: relative;
-            font-size: 1.2em;
         }
 
         .command {
@@ -235,7 +224,6 @@
             color: white;
             text-align: center;
             padding: 40px 0;
-            border-top: 5px solid var(--secondary-color);
         }
 
         .footer-content {
@@ -292,4 +280,78 @@
         <div class="hero-content">
             <h1>টারমাক্স প্রো সেটআপ - বাংলাদেশ</h1>
             <p>আপনার টারমাক্স অভিজ্ঞতাকে উন্নত করুন</p>
-            <a href="#usage" class
+            <a href="#usage" class="btn">শুরু করুন</a>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2>✨ বৈশিষ্ট্য</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-sync-alt"></i>
+                <h3>স্বয়ংক্রিয় আপডেট</h3>
+                <p>সর্বাধুনিক প্যাকেজ এবং টুলস সহ আপ টু ডেট থাকুন</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-tools"></i>
+                <h3>উন্নত টুল</h3>
+                <p>পাইথন, গিট, নম্যাপ সহ অন্যান্য প্রয়োজনীয় টুল</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-terminal"></i>
+                <h3>কাস্টম কনফিগারেশন</h3>
+                <p>Oh My Zsh, Vim, এবং Tmux এর জন্য বিশেষ সেটিংস</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-code"></i>
+                <h3>ডেভেলপমেন্ট সহায়ক</h3>
+                <p>পাইথন ডেভেলপমেন্টের জন্য বিশেষ টুলস</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" class="container">
+        <h2>🚀 ব্যবহার</h2>
+        <p>টারমাক্সে নিম্নলিখিত কমান্ডগুলি রান করুন:</p>
+        <div class="command-box">
+            <pre class="command">pkg install git -y
+git clone https://github.com/StudentsPowersBD/Termux-Setup.git
+cd Termux-Setup
+chmod +x setup.sh
+./setup.sh</pre>
+            <button class="copy-btn" onclick="copyToClipboard()">কপি করুন</button>
+        </div>
+        <p>এই কমান্ডগুলি আপনার টারমাক্স এনভায়রনমেন্টকে সম্পূর্ণরূপে সেটআপ করবে।</p>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 টারমাক্স প্রো সেটআপ - বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
+            <div class="footer-links">
+                <a href="https://t.me/StudentsPowersBD"><i class="fab fa-telegram"></i> StudentsPowersBD</a>
+                <a href="https://t.me/VorTexCyberBD"><i class="fab fa-telegram"></i> VorTexCyberBD</a>
+                <a href="https://t.me/GenerationZoomersBD"><i class="fab fa-telegram"></i> GenerationZoomersBD</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard() {
+            const commandText = document.querySelector('.command').innerText;
+            navigator.clipboard.writeText(commandText).then(() => {
+                alert('কমান্ড কপি করা হয়েছে!');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
