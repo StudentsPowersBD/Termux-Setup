@@ -21,6 +21,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
         :root {
             --primary-color: #006a4e;
@@ -42,6 +45,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -58,6 +62,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
         }
 
         nav {
@@ -72,11 +77,13 @@
             font-weight: bold;
             color: var(--accent-color);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideIn 0.8s ease-out forwards;
         }
 
         nav ul {
             display: flex;
             list-style-type: none;
+            animation: fadeIn 1s ease-out forwards;
         }
 
         nav ul li {
@@ -95,6 +102,7 @@
             color: var(--accent-color);
         }
 
+        /* Hero Section */
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://api.placeholder.com/1920x1080?text=Bangladesh+Landscape');
             background-size: cover;
@@ -106,12 +114,25 @@
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
+            animation: fadeInUp 1.2s ease-out forwards;
         }
 
         h1 {
@@ -149,6 +170,7 @@
             margin-bottom: 30px;
             text-align: center;
             position: relative;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         h2::after {
@@ -173,6 +195,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .feature:hover {
@@ -193,6 +216,7 @@
             padding: 20px;
             margin-bottom: 20px;
             position: relative;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .command {
@@ -219,48 +243,19 @@
             color: white;
         }
 
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
     </style>
 </head>
@@ -269,87 +264,60 @@
         <nav class="container">
             <div class="logo">টারমাক্স প্রো</div>
             <ul>
-                <li><a href="#features">বৈশিষ্ট্য</a></li>
-                <li><a href="#usage">ব্যবহার</a></li>
+                <li><a href="#features">ফিচারসমূহ</a></li>
+                <li><a href="#setup">সেটআপ নির্দেশিকা</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <div class="hero">
         <div class="hero-content">
-            <h1>টারমাক্স প্রো সেটআপ - বাংলাদেশ</h1>
-            <p>আপনার টারমাক্স অভিজ্ঞতাকে উন্নত করুন</p>
-            <a href="#usage" class="btn">শুরু করুন</a>
+            <h1>টারমাক্স প্রো সেটআপ স্ক্রিপ্ট</h1>
+            <p>একটি উন্নত সেটআপ স্ক্রিপ্ট যা আপনার Termux অভিজ্ঞতাকে সম্পূর্ণ নতুন স্তরে নিয়ে যাবে।</p>
+            <a href="#setup" class="btn">শুরু করুন</a>
         </div>
-    </section>
+    </div>
 
     <section id="features" class="container">
-        <h2>✨ বৈশিষ্ট্য</h2>
+        <h2>ফিচারসমূহ</h2>
         <div class="features">
             <div class="feature">
-                <i class="fas fa-sync-alt"></i>
-                <h3>স্বয়ংক্রিয় আপডেট</h3>
-                <p>সর্বাধুনিক প্যাকেজ এবং টুলস সহ আপ টু ডেট থাকুন</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-tools"></i>
-                <h3>উন্নত টুল</h3>
-                <p>পাইথন, গিট, নম্যাপ সহ অন্যান্য প্রয়োজনীয় টুল</p>
-            </div>
-            <div class="feature">
                 <i class="fas fa-terminal"></i>
-                <h3>কাস্টম কনফিগারেশন</h3>
-                <p>Oh My Zsh, Vim, এবং Tmux এর জন্য বিশেষ সেটিংস</p>
+                <h3>উন্নত টার্মিনাল ফিচার</h3>
+                <p>Termux প্রো সেটআপ স্ক্রিপ্ট দিয়ে আপনার টার্মিনাল অভিজ্ঞতাকে আরও উন্নত করুন।</p>
             </div>
             <div class="feature">
-                <i class="fas fa-code"></i>
-                <h3>ডেভেলপমেন্ট সহায়ক</h3>
-                <p>পাইথন ডেভেলপমেন্টের জন্য বিশেষ টুলস</p>
+                <i class="fas fa-lock"></i>
+                <h3>সিকিউরিটি সেটআপ</h3>
+                <p>সিকিউরিটি সেটআপ এবং ডিফল্ট কনফিগারেশনের জন্য উন্নত বিকল্পগুলি অন্তর্ভুক্ত করুন।</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>দ্রুত পারফরম্যান্স</h3>
+                <p>স্ক্রিপ্টটি দ্রুত কাজের জন্য অপ্টিমাইজ করা হয়েছে।</p>
             </div>
         </div>
     </section>
 
-    <section id="usage" class="container">
-        <h2>🚀 ব্যবহার</h2>
-        <p>টারমাক্সে নিম্নলিখিত কমান্ডগুলি রান করুন:</p>
+    <section id="setup" class="container">
+        <h2>সেটআপ নির্দেশিকা</h2>
         <div class="command-box">
-            <pre class="command">pkg install git -y
-git clone https://github.com/StudentsPowersBD/Termux-Setup.git
-cd Termux-Setup
-chmod +x setup.sh
-./setup.sh</pre>
-            <button class="copy-btn" onclick="copyToClipboard()">কপি করুন</button>
+            <p class="command">bash setup.sh</p>
+            <button class="copy-btn">কপি করুন</button>
         </div>
-        <p>এই কমান্ডগুলি আপনার টারমাক্স এনভায়রনমেন্টকে সম্পূর্ণরূপে সেটআপ করবে।</p>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2023 টারমাক্স প্রো সেটআপ - বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।</p>
-            <div class="footer-links">
-                <a href="https://t.me/StudentsPowersBD"><i class="fab fa-telegram"></i> StudentsPowersBD</a>
-                <a href="https://t.me/VorTexCyberBD"><i class="fab fa-telegram"></i> VorTexCyberBD</a>
-                <a href="https://t.me/GenerationZoomersBD"><i class="fab fa-telegram"></i> GenerationZoomersBD</a>
-            </div>
-        </div>
-    </footer>
+    <section id="contact" class="container">
+        <h2>যোগাযোগ করুন</h2>
+        <p>আপনার যদি কোনো প্রশ্ন থাকে, দয়া করে আমাদের সাথে যোগাযোগ করুন।</p>
+    </section>
 
     <script>
-        function copyToClipboard() {
-            const commandText = document.querySelector('.command').innerText;
+        document.querySelector('.copy-btn').addEventListener('click', function() {
+            const commandText = document.querySelector('.command').textContent;
             navigator.clipboard.writeText(commandText).then(() => {
                 alert('কমান্ড কপি করা হয়েছে!');
-            });
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
