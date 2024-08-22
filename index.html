@@ -8,7 +8,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:title" content="টারমাক্স প্রো সেটআপ - বাংলাদেশ">
     <meta property="og:description" content="বাংলাদেশের জন্য উন্নত টারমাক্স সেটআপ স্ক্রিপ্ট">
-    <meta property="og:image" content="https://studentspowersbd.github.io/Termux-Setup/IMG_9698.jpeg">
+    <meta property="og:image" content="https://api.placeholder.com/1920x1080?text=Bangladesh+Termux+Setup">
     <meta property="og:url" content="https://studentspowersbd.github.io/Termux-Setup/">
     <meta property="og:type" content="website">
 
@@ -21,13 +21,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom Styles -->
     <style>
         :root {
-            --primary-color: #006a4e;
-            --secondary-color: #f42a41;
-            --accent-color: #ffbf00;
-            --text-color: #333;
-            --bg-color: #f0f0f0;
+            --primary-color: #006a4e; /* Bangladesh Green */
+            --secondary-color: #f42a41; /* Bangladesh Red */
+            --accent-color: #ffbf00; /* Accent Yellow */
+            --text-color: #222;
+            --bg-color: #f7f7f7;
             --header-height: 70px;
         }
 
@@ -41,7 +42,7 @@
             font-family: 'Noto Sans Bengali', Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .container {
@@ -58,12 +59,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background-color: rgba(0, 106, 78, 0.95);
-            backdrop-filter: blur(10px);
+            border-bottom: 5px solid var(--secondary-color);
         }
 
         nav {
@@ -86,7 +82,7 @@
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
 
         nav ul li a {
@@ -102,7 +98,7 @@
         }
 
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://api.placeholder.com/1920x1080?text=Bangladesh+Landscape');
+            background-image: url('https://api.placeholder.com/1920x1080?text=Bangladesh+Landscape');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -112,49 +108,32 @@
             text-align: center;
             color: white;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,106,78,0.3);
-            z-index: 1;
+            border-bottom: 5px solid var(--secondary-color);
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             max-width: 800px;
         }
 
         h1 {
-            font-size: 4em;
+            font-size: 3.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: var(--accent-color);
         }
 
         .btn {
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
@@ -170,13 +149,14 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 80px 0;
+            text-align: center;
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 3em;
-            margin-bottom: 50px;
+            font-size: 2.5em;
+            margin-bottom: 30px;
             text-align: center;
             position: relative;
         }
@@ -192,35 +172,17 @@
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
         .feature {
             background-color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature:hover::before {
-            opacity: 0.1;
         }
 
         .feature:hover {
@@ -229,149 +191,95 @@
         }
 
         .feature i {
-            font-size: 4em;
+            font-size: 3em;
             color: var(--primary-color);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        .feature h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-
-        code {
+        .command-box {
             background-color: #2d2d2d;
             color: #f0f0f0;
-            border: none;
             border-radius: 8px;
-            display: block;
-            padding: 25px;
-            white-space: pre-wrap;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            overflow-x: auto;
-        }
-
-        .telegram-channels {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .telegram-channel {
-            background-color: #0088cc;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .telegram-channel i {
-            margin-right: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
             font-size: 1.2em;
         }
 
-        .telegram-channel:hover {
-            background-color: #005580;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        .command {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
         }
 
         footer {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            position: relative;
-            overflow: hidden;
+            padding: 40px 0;
+            border-top: 5px solid var(--secondary-color);
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-            opacity: 0.1;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .bangladesh-border {
-            border: 10px solid var(--primary-color);
-            border-radius: 25px;
-            padding: 40px;
-            margin-bottom: 50px;
-            background-color: rgba(255,255,255,0.9);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .footer-links {
+            display: flex;
+            gap: 20px;
         }
 
-        .bangladesh-pattern {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23f42a41"/></svg>');
-            background-size: 100px 100px;
-            background-repeat: repeat;
-            padding: 50px;
-            border-radius: 25px;
-            margin-bottom: 50px;
-            background-color: rgba(255,255,255,0.9);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
         }
 
         @media (max-width: 768px) {
-            .hero {
-                height: calc(100vh - var(--header-height));
-            }
-
             h1 {
-                font-size: 3em;
+                font-size: 2.5em;
             }
 
             .features {
                 grid-template-columns: 1fr;
             }
 
-            .telegram-channels {
+            .footer-content {
                 flex-direction: column;
-                align-items: center;
+                gap: 20px;
             }
-        }
-
-        .add-to-home {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: none;
-            z-index: 1000;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .add-to-home:hover {
-            background-color: var(--secondary-color);
-            transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">টারমাক্স</div>
+            <div class="logo">টারমাক্স প্রো</div>
             <ul>
                 <li><a href="#features">বৈশিষ্ট্য</a></li>
                 <li><a href="#usage">ব্যবহার</a></li>
@@ -384,36 +292,4 @@
         <div class="hero-content">
             <h1>টারমাক্স প্রো সেটআপ - বাংলাদেশ</h1>
             <p>আপনার টারমাক্স অভিজ্ঞতাকে উন্নত করুন</p>
-            <a href="#usage" class="btn">শুরু করুন</a>
-        </div>
-    </section>
-
-    <section id="features" class="container">
-        <h2>✨ বৈশিষ্ট্য</h2>
-        <div class="bangladesh-border">
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>স্বয়ংক্রিয় আপডেট</h3>
-                    <p>সর্বাধুনিক প্যাকেজ এবং টুলস সহ আপ টু ডেট থাকুন</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-tools"></i>
-                    <h3>উন্নত টুল</h3>
-                    <p>পাইথন, গিট, নম্যাপ সহ অন্যান্য প্রয়োজনীয় টুল</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-terminal"></i>
-                    <h3>কাস্টম কনফিগারেশন</h3>
-                    <p>Oh My Zsh, Vim, এবং Tmux এর জন্য বিশেষ সেটিংস</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-code"></i>
-                    <h3>ডেভেলপমেন্ট সহায়ক</h3>
-                    <p>পাইথন ডেভেলপমেন্টের জন্য বিশেষ টুলস</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="usage" class="container">
+            <a href="#usage" class
